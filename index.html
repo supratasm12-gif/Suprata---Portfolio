@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Suprata SM - AI and Machine Learning Engineer Portfolio">
+<title>Suprata SM | AI & ML Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090711;
+  --surface: #12101e;
+  --surface2: #191528;
+  --purple: #a78bfa;
+  --purple2: #7c3aed;
+  --pink: #e879f9;
+  --text: #f5f3ff;
+  --muted: #aaa4bd;
+  --border: rgba(167,139,250,.18);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+a { text-decoration:none; color:inherit; }
+button { font-family:inherit; cursor:pointer; }
+
+.container { width:min(1120px,90%); margin:auto; }
+
+.gradient {
+  background:linear-gradient(100deg,#c4b5fd,#a78bfa,#e879f9);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+nav {
+  position:fixed;
+  top:0; left:0; width:100%;
+  z-index:100;
+  background:rgba(9,7,17,.85);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-inner {
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:24px;
+  font-weight:700;
+}
+
+.logo span { color:var(--purple); }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+
+.nav-links a {
+  font-size:13px;
+  color:var(--muted);
+  transition:.3s;
+}
+
+.nav-links a:hover { color:var(--purple); }
+
+.nav-btn,.primary-btn {
+  padding:12px 22px;
+  background:linear-gradient(110deg,#7c3aed,#a78bfa);
+  border-radius:9px;
+  color:white;
+  font-size:13px;
+  font-weight:700;
+  border:0;
+  display:inline-block;
+  transition:.3s;
+}
+
+.nav-btn:hover,.primary-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px #7c3aed55;
+}
+
+.menu-btn {
+  display:none;
+  color:white;
+  font-size:25px;
+  background:none;
+  border:0;
+}
+
+.hero {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:130px 0 70px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  width:500px;height:500px;
+  background:#7c3aed;
+  filter:blur(180px);
+  opacity:.18;
+  top:5%;right:-10%;
+  border-radius:50%;
+}
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:60px;
+  position:relative;
+}
+
+.tag {
+  display:inline-block;
+  border:1px solid var(--border);
+  color:var(--purple);
+  padding:7px 14px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:24px;
+  background:#a78bfa0b;
+}
+
+.hero h1 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(42px,6vw,72px);
+  line-height:1.12;
+  letter-spacing:-2px;
+  margin-bottom:18px;
+}
+
+.hero h2 {
+  font-size:21px;
+  color:var(--purple);
+  margin-bottom:18px;
+}
+
+.hero p {
+  color:var(--muted);
+  max-width:550px;
+  font-size:15px;
+  margin-bottom:30px;
+}
+
+.hero-buttons {
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.outline-btn {
+  display:inline-block;
+  padding:11px 22px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  color:var(--text);
+  font-size:13px;
+  transition:.3s;
+}
+
+.outline-btn:hover {
+  border-color:var(--purple);
+  color:var(--purple);
+}
+
+.photo-wrap {
+  width:310px;height:370px;
+  margin:auto;
+  border-radius:30px;
+  padding:5px;
+  background:linear-gradient(145deg,#a78bfa,#e879f9,#4c1d95);
+  box-shadow:0 0 80px #7c3aed30;
+  transform:rotate(2deg);
+}
+
+.photo-wrap img {
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:26px;
+  background:var(--surface);
+}
+
+.photo-fallback {
+  width:100%;height:100%;
+  display:grid;place-items:center;
+  background:var(--surface2);
+  border-radius:26px;
+  font-family:'Space Grotesk';
+  font-size:80px;
+  color:var(--purple);
+}
+
+.section { padding:100px 0; }
+
+.section-title {
+  text-align:center;
+  margin-bottom:55px;
+}
+
+.section-title span {
+  color:var(--purple);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.section-title h2 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:38px;
+  margin-top:8px;
+}
+
+.section-title p {
+  color:var(--muted);
+  font-size:14px;
+  margin-top:10px;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.about-card,.skill-card,.project-card,.contact-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.about-card h3 {
+  font-family:'Space Grotesk';
+  font-size:23px;
+  margin-bottom:15px;
+}
+
+.about-card p {
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:14px;
+}
+
+.info-list { display:grid;gap:15px; }
+
+.info-item {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:12px;
+  font-size:13px;
+}
+
+.info-item span:first-child { color:var(--muted); }
+.info-item span:last-child { color:var(--purple);text-align:right; }
+
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.skill-card {
+  transition:.3s;
+}
+
+.skill-card:hover,.project-card:hover {
+  transform:translateY(-6px);
+  border-color:var(--purple);
+}
+
+.skill-icon {
+  font-size:30px;
+  margin-bottom:14px;
+}
+
+.skill-card h3 {
+  font-family:'Space Grotesk';
+  margin-bottom:8px;
+}
+
+.skill-card p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.skill-bar {
+  margin-top:18px;
+  height:5px;
+  border-radius:10px;
+  background:#292438;
+  overflow:hidden;
+}
+
+.skill-bar div {
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#7c3aed,#e879f9);
+  transition:width 1.3s ease;
+}
+
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.project-card {
+  transition:.3s;
+  overflow:hidden;
+}
+
+.project-top {
+  height:140px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-size:52px;
+  background:linear-gradient(135deg,#26144b,#171326);
+  margin-bottom:22px;
+}
+
+.project-card h3 {
+  font-family:'Space Grotesk';
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.project-card p {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.project-label {
+  display:inline-block;
+  color:var(--purple);
+  font-size:10px;
+  border:1px solid var(--border);
+  padding:5px 10px;
+  border-radius:20px;
+  margin-bottom:13px;
+}
+
+.tech-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.tech-tags span {
+  background:#a78bfa12;
+  color:#c4b5fd;
+  padding:5px 9px;
+  border-radius:6px;
+  font-size:10px;
+}
+
+.education-box {
+  max-width:750px;
+  margin:auto;
+  padding:30px;
+  border-left:3px solid var(--purple);
+  background:var(--surface);
+  border-radius:0 15px 15px 0;
+}
+
+.education-box .year {
+  color:var(--purple);
+  font-size:12px;
+  font-weight:700;
+}
+
+.education-box h3 {
+  font-family:'Space Grotesk';
+  font-size:22px;
+  margin:10px 0;
+}
+
+.education-box p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.cert-box {
+  max-width:700px;
+  margin:auto;
+  padding:35px;
+  border:1px dashed var(--border);
+  border-radius:15px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.cert-box div { font-size:35px;margin-bottom:10px; }
+.cert-box h3 { color:var(--text);margin-bottom:8px; }
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:30px;
+}
+
+.contact-info h3 {
+  font-family:'Space Grotesk';
+  font-size:25px;
+  margin-bottom:12px;
+}
+
+.contact-info p {
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.contact-link {
+  display:block;
+  padding:15px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:12px;
+  font-size:13px;
+  transition:.3s;
+}
+
+.contact-link:hover {
+  border-color:var(--purple);
+}
+
+.contact-link small {
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+}
+
+.contact-form { display:grid;gap:15px; }
+
+.contact-form input,.contact-form textarea {
+  width:100%;
+  padding:15px;
+  background:#0d0b16;
+  border:1px solid var(--border);
+  border-radius:9px;
+  color:white;
+  font-family:inherit;
+  outline:none;
+}
+
+.contact-form input:focus,.contact-form textarea:focus {
+  border-color:var(--purple);
+}
+
+.contact-form textarea {
+  min-height:140px;
+  resize:vertical;
+}
+
+footer {
+  border-top:1px solid var(--border);
+  padding:30px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+}
+
+footer span { color:var(--purple); }
+
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:.7s;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:850px) {
+  .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
+  .hero-content { text-align:center; }
+  .hero p { margin-left:auto;margin-right:auto; }
+  .hero-buttons { justify-content:center; }
+  .photo-wrap { width:260px;height:310px; }
+  .skills-grid,.projects-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:600px) {
+  .menu-btn { display:block; }
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:76px;left:0;width:100%;
+    background:#100d1b;
+    flex-direction:column;
+    padding:25px;
+    gap:20px;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-links.active { display:flex; }
+  .nav-btn { display:none; }
+  .hero h1 { font-size:45px; }
+  .hero h2 { font-size:17px; }
+  .section { padding:75px 0; }
+  .section-title h2 { font-size:30px; }
+  .skills-grid,.projects-grid { grid-template-columns:1fr; }
+  .about-card { padding:22px; }
+  .info-item { font-size:11px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">SUPRATA<span>.</span></a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a class="nav-btn" href="#contact">Let's Connect ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+      <div class="tag">✦ WELCOME TO MY PORTFOLIO</div>
+
+      <h1>Hi, I'm <span class="gradient">Suprata SM</span></h1>
+
+      <h2>I'm an Aspiring <span id="typing">AI Engineer</span></h2>
+
+      <p>
+        A passionate B.Sc. Artificial Intelligence and Machine Learning
+        student who loves technology, creative problem-solving and
+        building intelligent solutions for tomorrow.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="primary-btn">Explore My Work ↗</a>
+        <a href="#about" class="outline-btn">More About Me</a>
+      </div>
+    </div>
+
+    <div class="photo-wrap">
+      <img src="profile.jpg" alt="Suprata SM profile photo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+      <div class="photo-fallback" style="display:none;">SS</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>GET TO KNOW ME</span>
+      <h2>About <span class="gradient">Me</span></h2>
+      <p>A little introduction about who I am and what I do.</p>
+    </div>
+
+    <div class="about-grid reveal">
+
+      <div class="about-card">
+        <h3>My Journey into Technology</h3>
+
+        <p>
+          Hello! I'm Suprata SM, an enthusiastic student pursuing
+          Artificial Intelligence and Machine Learning at KPR College
+          of Arts Science and Research.
+        </p>
+
+        <p>
+          I am interested in programming, intelligent systems,
+          machine learning and modern web technologies. I enjoy
+          learning new skills and exploring how technology can
+          solve real-world problems.
+        </p>
+
+        <p>
+          My goal is to grow into a skilled AI and Machine Learning
+          Engineer and contribute to meaningful technology projects.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Personal Details</h3>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span>Name</span><span>Suprata SM</span>
+          </div>
+          <div class="info-item">
+            <span>Location</span><span>Tiruppur, Tamil Nadu</span>
+          </div>
+          <div class="info-item">
+            <span>Education</span><span>B.Sc. AIML</span>
+          </div>
+          <div class="info-item">
+            <span>College</span><span>KPR College of Arts Science and Research</span>
+          </div>
+          <div class="info-item">
+            <span>Career Goal</span><span>AI & ML Engineer</span>
+          </div>
+          <div class="info-item">
+            <span>Email</span><span>supratasm12@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills" style="background:#0d0b16;">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>WHAT I WORK WITH</span>
+      <h2>My <span class="gradient">Skills</span></h2>
+      <p>Technologies and areas I'm learning and exploring.</p>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐍</div>
+        <h3>Python</h3>
+        <p>Programming fundamentals, logical thinking and coding.</p>
+        <div class="skill-bar"><div data-width="75%"></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🌐</div>
+        <h3>HTML</h3>
+        <p>Creating structured and accessible web pages.</p>
+        <div class="skill-bar"><div data-width="80%"></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🎨</div>
+        <h3>CSS</h3>
+        <p>Responsive layouts, styling and modern interfaces.</p>
+        <div class="skill-bar"><div data-width="75%"></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Interactive web experiences and basic functionality.</p>
+        <div class="skill-bar"><div data-width="65%"></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🤖</div>
+        <h3>Artificial Intelligence</h3>
+        <p>Exploring AI concepts and intelligent applications.</p>
+        <div class="skill-bar"><div data-width="60%"></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🧠</div>
+        <h3>Machine Learning</h3>
+        <p>Learning machine learning concepts and applications.</p>
+        <div class="skill-bar"><div data-width="55%"></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>MY CREATIVE WORK</span>
+      <h2>Featured <span class="gradient">Projects</span></h2>
+      <p>Starter project ideas to develop and showcase as you learn.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-top">🤖</div>
+        <span class="project-label">STARTER PROJECT IDEA</span>
+        <h3>AI Chatbot Assistant</h3>
+        <p>
+          A conversational assistant concept designed to answer
+          common questions and provide helpful information.
+        </p>
+        <div class="tech-tags">
+          <span>Python</span><span>AI</span><span>NLP</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">📊</div>
+        <span class="project-label">STARTER PROJECT IDEA</span>
+        <h3>Student Performance Predictor</h3>
+        <p>
+          A machine learning project concept that explores student
+          performance prediction using academic data.
+        </p>
+        <div class="tech-tags">
+          <span>Python</span><span>ML</span><span>Data</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">💻</div>
+        <span class="project-label">PERSONAL WEBSITE</span>
+        <h3>Personal Portfolio</h3>
+        <p>
+          A responsive personal website presenting my education,
+          skills, career interests and contact information.
+        </p>
+        <div class="tech-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education" style="background:#0d0b16;">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>MY ACADEMIC BACKGROUND</span>
+      <h2>My <span class="gradient">Education</span></h2>
+    </div>
+
+    <div class="education-box reveal">
+      <span class="year">CURRENT EDUCATION</span>
+      <h3>B.Sc. Artificial Intelligence and Machine Learning</h3>
+      <p>KPR College of Arts Science and Research</p>
+      <p>Tiruppur, Tamil Nadu, India</p>
+      <p style="margin-top:12px;">
+        Building a foundation in computing, programming,
+        artificial intelligence and machine learning.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="section" id="certificates">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>ACHIEVEMENTS</span>
+      <h2>Certificates & <span class="gradient">Achievements</span></h2>
+    </div>
+
+    <div class="cert-box reveal">
+      <div>🏆</div>
+      <h3>My Learning Journey Is Growing</h3>
+      <p>
+        Certificates and achievements will be added here as I
+        complete courses, workshops and technical activities.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="background:#0d0b16;">
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>LET'S CONNECT</span>
+      <h2>Get In <span class="gradient">Touch</span></h2>
+      <p>Have an opportunity or an idea? I'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid reveal">
+
+      <div class="contact-info">
+        <h3>Let's talk about the future.</h3>
+        <p>
+          I'm interested in connecting with people, learning
+          opportunities and exciting technology projects.
+        </p>
+
+        <a class="contact-link" href="mailto:supratasm12@gmail.com">
+          ✉ Email
+          <small>supratasm12@gmail.com</small>
+        </a>
+
+        <a class="contact-link"
+           href="https://www.linkedin.com/in/suprata-murugasamy-1a9aa8385"
+           target="_blank" rel="noopener noreferrer">
+          in LinkedIn
+          <small>Connect with me professionally</small>
+        </a>
+
+        <a class="contact-link"
+           href="https://github.com/supratasm12-gif"
+           target="_blank" rel="noopener noreferrer">
+          ◇ GitHub
+          <small>Explore my GitHub profile</small>
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <form class="contact-form" id="contactForm">
+          <input type="text" id="name" placeholder="Your name" required>
+          <input type="email" id="email" placeholder="Your email" required>
+          <input type="text" id="subject" placeholder="Subject" required>
+          <textarea id="message" placeholder="Write your message..." required></textarea>
+          <button class="primary-btn" type="submit">
+            Send Message ↗
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Designed with 💜 by <span>Suprata SM</span></p>
+    <p>© <span id="year"></span> Suprata SM. All rights reserved.</p>
+    <p>Learning today. Building tomorrow.</p>
+  </div>
+</footer>
+
+<script>
+/* MOBILE MENU */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuBtn.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.textContent = "☰";
+  });
+});
+
+/* TYPING ANIMATION */
+const words = [
+  "AI Engineer",
+  "Machine Learning Engineer",
+  "Technology Enthusiast",
+  "Future Innovator"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typing = document.getElementById("typing");
+
+function typeEffect() {
+  const currentWord = words[wordIndex];
+
+  if (!deleting) {
+    typing.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentWord.length) {
+      deleting = true;
+      setTimeout(typeEffect, 1400);
+      return;
+    }
+  } else {
+    typing.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
+  }
+
+  setTimeout(typeEffect, deleting ? 45 : 85);
+}
+
+typeEffect();
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+
+      entry.target.querySelectorAll(".skill-bar div").forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
+
+/* CONTACT FORM - OPENS EMAIL APP */
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const body =
+    "Name: " + name +
+    "\nEmail: " + email +
+    "\n\nMessage:\n" + message;
+
+  const mailto =
+    "mailto:supratasm12@gmail.com" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+  window.location.href = mailto;
+});
+
+/* FOOTER YEAR */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
